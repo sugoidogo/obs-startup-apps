@@ -1,14 +1,14 @@
 import obspython, platform, json, subprocess, os
 
-match platform.system():
-    case "Windows":
-        prepend='start "" '
-    case "Darwin":
-        prepend='open '
-    case "Linux":
-        prepend='xdg-open '
-    case _:
-        prepend=''
+os=platform.system()
+if os is "Windows":
+    prepend='start "" '
+elif os is "Darwin":
+    prepend='open '
+elif os is "Linux":
+    prepend='xdg-open '
+else:
+    prepend=''
 
 def script_description():
     return "run command(s) on obs startup"
@@ -17,7 +17,7 @@ def script_load(settings):
     settings=json.loads(obspython.obs_data_get_json(settings))
     commands=settings['commands']
     for command in commands:
-        if(platform.system() is not "Windows" and os.access(command['value'], os.X_OK)):
+        if(os is not "Windows" and os.access(command['value'], os.X_OK)):
             subprocess.Popen([command['value']])
         else:
             subprocess.Popen(prepend+'"'+command['value']+'"',shell=True)
