@@ -13,6 +13,11 @@ else:
 def script_description():
     return "run command(s) on obs startup"
 
+def script_defaults(settings):
+    defaults=obspython.obs_data_create_from_json(json.dumps({'commands':[]}))
+    obspython.obs_data_apply(defaults,settings)
+    obspython.obs_data_apply(settings,defaults)
+
 def script_load(settings):
     settings=json.loads(obspython.obs_data_get_json(settings))
     commands=settings['commands']
