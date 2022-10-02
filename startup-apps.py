@@ -23,8 +23,10 @@ def script_load(settings):
     commands=settings['commands']
     for command in commands:
         if(os != "Windows" and os.access(command['value'], os.X_OK)):
+            print(command['value'])
             subprocess.Popen([command['value']])
         else:
+            print(prepend+command['value'])
             subprocess.Popen(prepend+'"'+command['value']+'"',shell=True)
         
 def script_properties():
