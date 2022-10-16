@@ -10,4 +10,4 @@ Before obs can use python scripts, it needs to know where to find a compatibe py
 ### All Platforms
 Download and extract the [latest release](https://github.com/sugoidogo/obs-startup-apps/releases/latest) into any directory, and then add the script to OBS via `Tools > Scripts > +` (bottom-left of the scripts window). From there you can add or remove any startup apps.
 ## Support
-Support information for all my software is on my [GitHub profile](github.com/sugoidogo)
+Support information for all my software is on my [GitHub profile](https://github.com/sugoidogo)
